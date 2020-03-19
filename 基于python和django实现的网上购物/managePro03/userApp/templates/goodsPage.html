@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% include 'top.html' %}
+    <hr>
+    显示商品
+    <table>
+        <tr>
+            <td>
+                商品名称
+            </td>
+            <td>商品单价</td>
+        </tr>
+{% for pro in pros %}
+        <tr>
+            <td>
+              {{pro.proName}}  
+            </td>
+            <td>{{pro.proPrice}}</td>
+            <td><a href="../../goods/deleGoods/?proId={{pro.proId}}"> 删除商品 </a></td>
+            
+        </tr>
+        {% endfor %}
+
+    </table>
+</body>
+</html>

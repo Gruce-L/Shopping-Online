@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    {% include 'top.html' %}
+<hr>
+<a href="/goods/addGoods/">我的购物车</a>
+<br>
+<form action="../../test/adduserGods">
+<table>
+        <tr>
+            <td>
+                <input type="checkbox" id='checkAll'>
+            </td>
+            <td>
+                商品名称
+            </td>
+            <td>商品单价</td>
+            <td>操作</td>
+        </tr>
+{% for pro in pros %}
+        <tr>
+            <td>
+                <input type="checkbox" id='proCheck' name="proId" value="{{pro.proId}}">
+            </td>
+            <td>
+              {{pro.proName}}  
+            </td>
+            <td>{{pro.proPrice}}</td>
+            <td><a href="../../test/adduserGods?proId={{pro.proId}}"> 加入购物车 </a></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>
